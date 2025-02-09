@@ -1,0 +1,68 @@
+[
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/main.c.o -c /home/ray/C/Projects/ChessbutBad/src/main.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/main.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/main.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/glad.c.o -c /home/ray/C/Projects/ChessbutBad/src/glad.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/glad.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/glad.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/lib/stb_image/stb_image.c.o -c /home/ray/C/Projects/ChessbutBad/lib/stb_image/stb_image.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/lib/stb_image/stb_image.c",
+  "output": "CMakeFiles/ChessbutBad.dir/lib/stb_image/stb_image.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/window/window.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/window/window.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/window/window.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/window/window.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/texture/texture.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/texture/texture.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/shader/shader.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/shader/shader.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/camera/camera.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/camera/camera.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VAO.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/VAO.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VBO.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/VBO.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/EBO.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/EBO.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o"
+}
+]

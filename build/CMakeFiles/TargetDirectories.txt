@@ -1,0 +1,3 @@
+/home/ray/C/Projects/ChessbutBad/build/CMakeFiles/ChessbutBad.dir
+/home/ray/C/Projects/ChessbutBad/build/CMakeFiles/edit_cache.dir
+/home/ray/C/Projects/ChessbutBad/build/CMakeFiles/rebuild_cache.dir
