@@ -7,6 +7,12 @@
 #include "utils/LOG.h"
 #include "utils/VAO.h"
 
+// constants
+#define HEIGHT 480
+#define WIDTH 640
+
+// variables
+
 bool running = true;
 
 mat4 projection;
@@ -18,7 +24,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action , int mo
 
 int main(){
     GLFWwindow* window;
-    init_window(&window, 480, 640, "CChess");
+    init_window(&window, HEIGHT, WIDTH, "CChess");
 
     glfwSetKeyCallback(window, key_callback);
 
@@ -36,7 +42,7 @@ int main(){
 
 
     camera = C_CreateCamera(camera, (vec2){0.0,0.0});
-    C_GetProjMatrix(camera, 480, 640, projection);
+    C_GetProjMatrix(camera, HEIGHT, WIDTH, projection);
     C_GetViewMatrix(camera, view);
 
     u32 VAO = CreateVAO(VAO);
@@ -67,7 +73,9 @@ int main(){
 
         BindVAO(VAO);
 
-        Renderer_FillRect(320,240, 480, 640, chess_bg, shader, VAO, VBO,EBO);
+        // chess board
+        Renderer_FillRect(320,240, HEIGHT/2, WIDTH/2, chess_bg, shader, VAO, VBO,EBO);
+        Renderer_FillRect(320,240, HEIGHT, WIDTH, chess_bg, shader, VAO, VBO,EBO);
 
         glfwPollEvents();
         glfwSwapBuffers(window);
