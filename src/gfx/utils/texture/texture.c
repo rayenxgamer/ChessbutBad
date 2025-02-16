@@ -73,7 +73,6 @@ struct Texture T_LoadAtlas(struct Texture* self,float GridSize, float GridX, flo
 
 void T_Bind(struct Texture self){
     glBindTexture(GL_TEXTURE_2D, self.ID);
-    printf("Texture Bound!\n");
 }
 
 void T_UnBindA(){

@@ -170,10 +170,24 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ray/C/Projects/ChessbutBad/src/gfx/utils/camera/camera.c -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.s
 
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o: CMakeFiles/ChessbutBad.dir/flags.make
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o: /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o -MF CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o.d -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c
+
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c > CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.i
+
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.s
+
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o: CMakeFiles/ChessbutBad.dir/flags.make
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o: /home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o -MF CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o.d -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.i: cmake_force
@@ -187,7 +201,7 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.s: cmake_fo
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o: CMakeFiles/ChessbutBad.dir/flags.make
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o: /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VAO.c
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o -MF CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o.d -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VAO.c
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.i: cmake_force
@@ -201,7 +215,7 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.s: cmake_force
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o: CMakeFiles/ChessbutBad.dir/flags.make
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o: /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VBO.c
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o -MF CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o.d -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/VBO.c
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.i: cmake_force
@@ -215,7 +229,7 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.s: cmake_force
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o: CMakeFiles/ChessbutBad.dir/flags.make
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o: /home/ray/C/Projects/ChessbutBad/src/gfx/utils/EBO.c
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o -MF CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o.d -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/EBO.c
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.i: cmake_force
@@ -235,6 +249,7 @@ ChessbutBad_OBJECTS = \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o" \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o" \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o" \
+"CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o" \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o" \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o" \
 "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o" \
@@ -250,6 +265,7 @@ ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/window/window.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o
+ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o
@@ -257,7 +273,7 @@ ChessbutBad: CMakeFiles/ChessbutBad.dir/src/gfx/utils/EBO.c.o
 ChessbutBad: CMakeFiles/ChessbutBad.dir/build.make
 ChessbutBad: CMakeFiles/ChessbutBad.dir/compiler_depend.ts
 ChessbutBad: CMakeFiles/ChessbutBad.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C executable ChessbutBad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ray/C/Projects/ChessbutBad/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable ChessbutBad"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ChessbutBad.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -3,11 +3,13 @@
 #include <cglm/cglm.h>
 #include <utils/shader/shader.h>
 #include <utils/texture/texture.h>
+#include <utils/board/board.h>
 
 #include "../VAO.h"
 #include "../VBO.h"
 #include "../EBO.h"
 
 
-void Renderer_FillRect(float x,float y,float height, float width, struct Texture self,struct Shader shader,
+void Renderer_FillRect(float height, float width,struct Shader shader,struct piece* piece,
                        unsigned int VAO, unsigned int VBO, unsigned int EBO);
+

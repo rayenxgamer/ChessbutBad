@@ -225,6 +225,30 @@ src/gfx/utils/VBO.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessbutBad.dir/build.make CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.s
 .PHONY : src/gfx/utils/VBO.c.s
 
+src/gfx/utils/board/board.o: src/gfx/utils/board/board.c.o
+.PHONY : src/gfx/utils/board/board.o
+
+# target to build an object file
+src/gfx/utils/board/board.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessbutBad.dir/build.make CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o
+.PHONY : src/gfx/utils/board/board.c.o
+
+src/gfx/utils/board/board.i: src/gfx/utils/board/board.c.i
+.PHONY : src/gfx/utils/board/board.i
+
+# target to preprocess a source file
+src/gfx/utils/board/board.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessbutBad.dir/build.make CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.i
+.PHONY : src/gfx/utils/board/board.c.i
+
+src/gfx/utils/board/board.s: src/gfx/utils/board/board.c.s
+.PHONY : src/gfx/utils/board/board.s
+
+# target to generate assembly for a file
+src/gfx/utils/board/board.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessbutBad.dir/build.make CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.s
+.PHONY : src/gfx/utils/board/board.c.s
+
 src/gfx/utils/camera/camera.o: src/gfx/utils/camera/camera.c.o
 .PHONY : src/gfx/utils/camera/camera.o
 
@@ -414,6 +438,9 @@ help:
 	@echo "... src/gfx/utils/VBO.o"
 	@echo "... src/gfx/utils/VBO.i"
 	@echo "... src/gfx/utils/VBO.s"
+	@echo "... src/gfx/utils/board/board.o"
+	@echo "... src/gfx/utils/board/board.i"
+	@echo "... src/gfx/utils/board/board.s"
 	@echo "... src/gfx/utils/camera/camera.o"
 	@echo "... src/gfx/utils/camera/camera.i"
 	@echo "... src/gfx/utils/camera/camera.s"

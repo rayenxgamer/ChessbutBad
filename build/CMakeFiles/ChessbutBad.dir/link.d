@@ -9,6 +9,7 @@ ChessbutBad: \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o \
+  CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o \
   CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o \
@@ -62,6 +63,8 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/texture/texture.c.o:
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o:
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o:
+
+CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o:
 
 CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o:
 

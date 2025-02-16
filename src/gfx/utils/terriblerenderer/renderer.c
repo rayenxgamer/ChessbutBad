@@ -1,15 +1,17 @@
 #include "renderer.h"
 #include "utils/shader/shader.h"
+#include "utils/board/board.h"
 
 // fill the rectangle that was created by using InitRect,
 // will automatically get assigned the position of the passed body (messy asf)
-void Renderer_FillRect(float x,float y,float height, float width, struct Texture self,struct Shader shader,
+void Renderer_FillRect(float height, float width,struct Shader shader,struct piece* piece,
                        unsigned int VAO, unsigned int VBO, unsigned int EBO)
 {
+    struct Texture self = piece->texture;
     mat4 model;
     float uvX1 = 0.0f, uvX2 = 0.0f, uvY1 = 0.0f, uvY2 = 0.0f;
     glm_mat4_identity(model);
-    glm_translate_make(model, (vec3){x,y,0});
+    glm_translate_make(model, (vec3){piece->x,piece->y});
 
     Shader_SetMat4(shader, "model", model);
 
@@ -46,10 +48,10 @@ void Renderer_FillRect(float x,float y,float height, float width, struct Texture
     BufferEBO(sizeof(indices), indices);
 
     // draw call
-   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-    printf("drawnplshelpimlostandifeelterriblegetmeagothgirlfriendpls");
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
     // reset the model matrix
     glm_mat4_identity(model); // Reset the model matrix
     Shader_SetMat4(shader, "model", model);
+    printf("maade a rect\n");
 };

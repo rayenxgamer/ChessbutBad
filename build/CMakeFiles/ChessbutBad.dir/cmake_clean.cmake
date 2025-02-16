@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VAO.c.o.d"
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o"
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/VBO.c.o.d"
+  "CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o"
+  "CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o.d"
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o"
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/camera/camera.c.o.d"
   "CMakeFiles/ChessbutBad.dir/src/gfx/utils/shader/shader.c.o"

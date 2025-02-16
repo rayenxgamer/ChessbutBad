@@ -13,6 +13,7 @@ add_executable(ChessbutBad
    src/gfx/utils/texture/texture.c
    src/gfx/utils/shader/shader.c
    src/gfx/utils/camera/camera.c
+   src/gfx/utils/board/board.c
    src/gfx/utils/terriblerenderer/renderer.c
    src/gfx/utils/VAO.c
    src/gfx/utils/VBO.c

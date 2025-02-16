@@ -43,6 +43,12 @@
 },
 {
   "directory": "/home/ray/C/Projects/ChessbutBad/build",
+  "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c",
+  "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.c",
+  "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/board/board.c.o"
+},
+{
+  "directory": "/home/ray/C/Projects/ChessbutBad/build",
   "command": "/usr/bin/cc  -I/home/ray/C/Projects/ChessbutBad/lib -I/home/ray/C/Projects/ChessbutBad/src/gfx  -o CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o -c /home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c",
   "file": "/home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.c",
   "output": "CMakeFiles/ChessbutBad.dir/src/gfx/utils/terriblerenderer/renderer.c.o"
