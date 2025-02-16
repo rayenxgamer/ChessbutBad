@@ -6,6 +6,7 @@
 #include <utils/terriblerenderer/renderer.h>
 #include <utils/board/board.h>
 #include "GLFW/glfw3.h"
+#include "cglm/mat4.h"
 #include "utils/VAO.h"
 
 // constants
@@ -26,11 +27,11 @@ struct Camera camera;
 const char* board[8] = { "R000000R",
                          "PPPPPPPP",
                          "00000000",
-                         "0000R000",
+                         "00000000",
                          "00000000",
                          "00000000",
                          "PPPPPPPP",
-                         "00000000"};
+                         "R000000R"};
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods );
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos){

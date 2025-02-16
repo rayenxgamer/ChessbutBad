@@ -13,3 +13,5 @@
 void Renderer_FillRect(float height, float width,struct Shader shader,struct piece* piece,
                        unsigned int VAO, unsigned int VBO, unsigned int EBO);
 
+void Renderer_FillBackground(float height, float width,struct Shader shader, struct Texture self,
+                       unsigned int VAO, unsigned int VBO, unsigned int EBO);

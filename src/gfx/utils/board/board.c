@@ -12,23 +12,28 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
   object* head = NULL;
   object* temp;
 
-  struct Texture Rook = T_LoadTextureFromFile(Rook, "../assets/pawns/black_pawn.png", false);
-  T_Bind(Rook);
+  // bind the background texture
+  struct Texture bg = T_LoadTextureFromFile(bg, "../assets/chess.png", false);
+  T_Bind(bg);
+  Renderer_FillBackground(640, 640, shader, bg, VAO, VBO,  EBO);
+  struct Texture atlas = T_LoadTextureFromFile(atlas, "../assets/rooks/white_rook.png", false);
+  T_Bind(atlas);
 
   BindShader(shader);
 
   for (int i=0; i<8; i++) {
     for (int j=0; j<8; j++) {
+      piece->x = 40 + (j * 80);
+      piece->y = 480 - (25 + (i * 60));
       switch (board[i][j]) {
         case 'R':
           printf("rook spawned!\n");
-          piece->x = 40 + (j * 80);
-          piece->y = 480 - (40+(i * 60));
           printf("the X is: %f\t the Y is %f\n",piece->y,piece->x);
           printf("the j is: %d\t the i is %d\n",j,i);
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = Rook;
+          piece->texture = atlas;
+          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -52,13 +57,6 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
     }
   }
   object* current = head;
-  int count = 1;
-  while (current != NULL) {
-    printf("itterated over %d pieces\n",count);
-    Renderer_FillRect(60, 60, shader, current->piece, VAO, VBO, EBO);
-    current = current ->next;
-    count ++;
-  }
 }
 void printboard(const char* board[8]){
   printf("%c\n",board[0][1]);
