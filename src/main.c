@@ -23,14 +23,14 @@ mat4 view;
 
 struct Camera camera;
 
-const char* board[8] = { "RNBQKBNR",
+const char* board[8] = { "R000000R",
                          "PPPPPPPP",
                          "00000000",
-                         "00000000",
+                         "0000R000",
                          "00000000",
                          "00000000",
                          "PPPPPPPP",
-                         "RNBQKBNR"};
+                         "00000000"};
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods );
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos){

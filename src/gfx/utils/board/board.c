@@ -7,7 +7,7 @@
 void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
   // should be able to just draw them using a list? but now i have
   // to think of how to make up the list
-  static struct piece piece;
+  struct piece* piece = malloc(sizeof(struct piece));
 
   object* head = NULL;
   object* temp;
@@ -22,15 +22,14 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
       switch (board[i][j]) {
         case 'R':
           printf("rook spawned!\n");
-          piece.x = (j * 80) + 40;
-          piece.y = (i*100) + 50;
-          piece.y = 800 - piece.y;
-          printf("the X is: %f\t the Y is %f\n",piece.y,piece.x);
+          piece->x = 40 + (j * 80);
+          piece->y = 480 - (40+(i * 60));
+          printf("the X is: %f\t the Y is %f\n",piece->y,piece->x);
           printf("the j is: %d\t the i is %d\n",j,i);
-          piece.type = 'R';
-          piece.selected = false;
-          piece.texture = Rook;
-          temp = insert(&piece);
+          piece->type = 'R';
+          piece->selected = false;
+          piece->texture = Rook;
+          temp = insert(piece);
           temp ->next = head;
           head = temp;
           break;

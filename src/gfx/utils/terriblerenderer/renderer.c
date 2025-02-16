@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include "utils/shader/shader.h"
 #include "utils/board/board.h"
+#include "utils/texture/texture.h"
 
 // fill the rectangle that was created by using InitRect,
 // will automatically get assigned the position of the passed body (messy asf)
@@ -11,7 +12,7 @@ void Renderer_FillRect(float height, float width,struct Shader shader,struct pie
     mat4 model;
     float uvX1 = 0.0f, uvX2 = 0.0f, uvY1 = 0.0f, uvY2 = 0.0f;
     glm_mat4_identity(model);
-    glm_translate_make(model, (vec3){piece->x,piece->y});
+    glm_translate_make(model, (vec3){piece->x,piece->y,0});
 
     Shader_SetMat4(shader, "model", model);
 
