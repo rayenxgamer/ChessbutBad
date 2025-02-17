@@ -53,7 +53,6 @@ void Renderer_FillRect(float height, float width,struct Shader shader,struct pie
     // reset the model matrix
     glm_mat4_identity(model); // Reset the model matrix
     Shader_SetMat4(shader, "model", model);
-    printf("maade a rect\n");
 };
 
 void Renderer_FillBackground(float height, float width,struct Shader shader, struct Texture self,
@@ -105,5 +104,4 @@ void Renderer_FillBackground(float height, float width,struct Shader shader, str
     // reset the model matrix
     glm_mat4_identity(model); // Reset the model matrix
     Shader_SetMat4(shader, "model", model);
-    printf("maade a rect\n");
 };

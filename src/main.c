@@ -6,7 +6,6 @@
 #include <utils/terriblerenderer/renderer.h>
 #include <utils/board/board.h>
 #include "GLFW/glfw3.h"
-#include "cglm/mat4.h"
 #include "utils/VAO.h"
 
 // constants
@@ -14,9 +13,6 @@
 #define WIDTH 640
 
 // variables
-float startx = 40;
-float starty = 100;
-
 bool running = true;
 
 mat4 projection;
@@ -24,14 +20,14 @@ mat4 view;
 
 struct Camera camera;
 
-const char* board[8] = { "R000000R",
+const char* board[8] = { "SOCTUCOS",
+                         "MMMMMMMM",
+                         "0M000000",
+                         "00000000",
+                         "00M000P0",
+                         "0000000P",
                          "PPPPPPPP",
-                         "00000000",
-                         "00000000",
-                         "00000000",
-                         "00000000",
-                         "PPPPPPPP",
-                         "R000000R"};
+                         "RNBQKBNR"};
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods );
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos){
@@ -50,14 +46,11 @@ int main(){
     struct VertexAttr attributes[] = {
         {0, "position"},
         {1, "texture"},
-    };
+   };
 
     unsigned int VAO = CreateVAO(VAO);
     unsigned int VBO = CreateVBO(VBO);
     unsigned int EBO = CreateEBO(EBO);
-
-    struct Texture chess_bg = T_LoadTextureFromFile(chess_bg, "../assets/bg.jpg", false);
-    T_Bind(chess_bg);
 
     BindVAO(VAO);
     BindVBO(VBO);
@@ -104,17 +97,6 @@ int main(){
 void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods ){
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
         running = false;
-    }
-    if (key == GLFW_KEY_S && action == GLFW_PRESS) {
-        starty -= 60;
-    }
-    if (key == GLFW_KEY_A && action == GLFW_PRESS) {
-        startx -= 80;
-    }
-    if (key == GLFW_KEY_W && action == GLFW_PRESS) {
-        starty += 60;
-    }
-    if (key == GLFW_KEY_D && action == GLFW_PRESS) {
-        startx += 80;
-    }
+    };
 }
+

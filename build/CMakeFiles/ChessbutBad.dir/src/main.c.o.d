@@ -129,5 +129,4 @@ CMakeFiles/ChessbutBad.dir/src/main.c.o: \
  /home/ray/C/Projects/ChessbutBad/src/gfx/utils/camera/camera.h \
  /home/ray/C/Projects/ChessbutBad/lib/cglm/types.h \
  /home/ray/C/Projects/ChessbutBad/src/gfx/utils/terriblerenderer/renderer.h \
- /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.h \
- /home/ray/C/Projects/ChessbutBad/lib/cglm/mat4.h
+ /home/ray/C/Projects/ChessbutBad/src/gfx/utils/board/board.h
