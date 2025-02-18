@@ -25,7 +25,6 @@ struct Texture T_LoadTextureFromFile(struct Texture self, const char* path, bool
     u_char* image = stbi_load(path, &self.width, &self.height, &self.nrChannels, 0);
     if (image)
     {
-        printf("loading texture\n");
         // flip texture
         // a switch to check for the number of channels then generates the texture
         printf("%d",self.nrChannels);
@@ -37,7 +36,6 @@ struct Texture T_LoadTextureFromFile(struct Texture self, const char* path, bool
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.width, self.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
         }
         glGenerateMipmap(GL_TEXTURE_2D);
-        printf("texture loaded!\n");
     }else{
         printf("Failed to load texture at: %s\n", path);
     }
@@ -66,8 +64,6 @@ struct Texture T_LoadAtlas(struct Texture* self,float GridSize, float GridX, flo
     }
     self ->uvX = i;
     self ->uvY = j;
-    printf("%f\n", i);
-    printf("%f\n", j);
     return *self;
 }
 

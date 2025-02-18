@@ -33,6 +33,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
   #define TEXTURE_WHITE_QUEEN T_LoadAtlas(&atlas, 16, 4, 0);
   #define TEXTURE_WHITE_KING T_LoadAtlas(&atlas, 16, 0, 1);
 
+  #define GLOBAL_PIECE_SIZE 50
+
  T_Bind(atlas);
 
   BindShader(shader);
@@ -40,14 +42,13 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
   for (int i=0; i<8; i++) {
     for (int j=0; j<8; j++) {
         piece->x = 40 + (j * 80);  // Offset by half the piece width (60/2)
-        piece->y = 480 - (50+(i*70));
+        piece->y = 460 - ((i*60));
       switch (board[i][j]) {
         case 'R':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_ROOK;
-          piece->y += 100;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_ROOK;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -55,9 +56,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'N':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_KNIGHT;
-          piece->y += 100;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_KNIGHT;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -65,9 +65,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'B':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_BISHOP;
-          piece->y += 100;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_BISHOP;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -75,9 +74,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'K':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_KING;
-          piece->y += 100;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_KING;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -85,9 +83,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'Q':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_QUEEN;
-          piece->y += 100;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_QUEEN;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -95,9 +92,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'P':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_BLACK_PAWN;
-          piece->y += 110;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_WHITE_PAWN;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -105,8 +101,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'S':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_ROOK;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_ROOK;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -114,8 +110,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'O':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_KNIGHT;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_KNIGHT;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -123,8 +119,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'C':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_BISHOP;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_BISHOP;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -132,8 +128,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'U':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_KING;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_KING;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -141,8 +137,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'T':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_QUEEN;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_QUEEN;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;
@@ -150,8 +146,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
         case 'M':
           piece->type = 'R';
           piece->selected = false;
-          piece->texture = TEXTURE_WHITE_PAWN;
-          Renderer_FillRect(60, 60, shader, piece, VAO, VBO, EBO);
+          piece->texture = TEXTURE_BLACK_PAWN;
+          Renderer_FillRect(GLOBAL_PIECE_SIZE, GLOBAL_PIECE_SIZE, shader, piece, VAO, VBO, EBO);
           temp = insert(piece);
           temp ->next = head;
           head = temp;

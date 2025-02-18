@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include "window.h"
+#include "GLFW/glfw3.h"
+#include "utils/texture/texture.h"
 #include "utils/types.h"
 
 

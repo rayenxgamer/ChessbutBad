@@ -32,7 +32,7 @@ const char* board[8] = { "SOCTUCOS",
 void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods );
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos){
   glfwGetCursorPos(window, &xpos,&ypos);
-  printf("%f\t%f\n",xpos,ypos);
+  printf("%lf\t%lf\n",xpos,ypos);
 }
 
 int main(){

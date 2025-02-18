@@ -1000,6 +1000,8 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/window/window.c.o: /home/ray/C/Projects
   /home/ray/C/Projects/ChessbutBad/lib/cglm/vec4-ext.h \
   /home/ray/C/Projects/ChessbutBad/lib/cglm/vec4.h \
   /home/ray/C/Projects/ChessbutBad/lib/glad/glad.h \
+  /home/ray/C/Projects/ChessbutBad/lib/stb_image/stb_image.h \
+  /home/ray/C/Projects/ChessbutBad/src/gfx/utils/texture/texture.h \
   /home/ray/C/Projects/ChessbutBad/src/gfx/utils/types.h \
   /home/ray/C/Projects/ChessbutBad/src/gfx/utils/window/window.h \
   /usr/include/KHR/khrplatform.h \
