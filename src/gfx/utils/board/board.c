@@ -41,8 +41,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
 
   for (int i=0; i<8; i++) {
     for (int j=0; j<8; j++) {
-        piece->x = 40 + (j * 80);  // Offset by half the piece width (60/2)
-        piece->y = 460 - ((i*60));
+        piece->x = 40 + (j * 80); // 40 px offset from window then 80px every move
+        piece->y = 460 - ((i*60)); // 20 px offset from window then 60px every move
       switch (board[i][j]) {
         case 'R':
           piece->type = 'R';
@@ -155,10 +155,6 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
       }
     }
   }
-  object* current = head;
-}
-void printboard(const char* board[8]){
-  printf("%c\n",board[0][1]);
 }
 
 void DefaultPiece(struct piece* self){
@@ -174,4 +170,7 @@ object* insert(struct piece* value){
     newnode->next = NULL;
 
     return newnode;
+};
+void Board_CheckForPieceClicked(double m_xpos,double m_ypos){
+
 };

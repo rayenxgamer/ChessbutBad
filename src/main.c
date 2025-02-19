@@ -13,6 +13,9 @@
 #define WIDTH 640
 
 // variables
+double m_xpos;
+double m_ypos;
+
 bool running = true;
 
 mat4 projection;
@@ -29,16 +32,9 @@ const char* board[8] = { "SOCTUCOS",
                          "PPPPPPPP",
                          "RNBQKBNR"};
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods );
-static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos){
-  glfwGetCursorPos(window, &xpos,&ypos);
-  printf("%lf\t%lf\n",xpos,ypos);
-}
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
-{
-    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
-    printf("leftmousebuttonclicked!\n");
-}
+static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
+static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 int main(){
     GLFWwindow* window;
@@ -81,18 +77,18 @@ int main(){
     C_GetViewMatrix(camera, view);
 
     while (running) {
-        Clear_window(1.0, 0.9, 0.1, 1.0);
-        ShouldCloseCheck(&window, &running);
-        BindShader(shader);
+      Clear_window(1.0, 0.9, 0.1, 1.0);
+      ShouldCloseCheck(&window, &running);
+      BindShader(shader);
 
-        Shader_SetMat4(shader, "projection", projection);
-        Shader_SetMat4(shader, "view", view);
-        // chess board
-        // grid is 40 offset from left X of the window and 80 per pawn rect
-        // 60 per Y looks good
-        Board_Draw(shader,board,VAO,VBO,EBO);
-        glfwPollEvents();
-    glfwSwapBuffers(window);
+      Shader_SetMat4(shader, "projection", projection);
+      Shader_SetMat4(shader, "view", view);
+      // chess board
+      // grid is 40 offset from left X of the window and 80 per pawn rect
+      // 60 per Y looks good
+      Board_Draw(shader,board,VAO,VBO,EBO);
+      glfwPollEvents();
+      glfwSwapBuffers(window);
     }
 
     Shutdown_window(&window);
@@ -100,8 +96,21 @@ int main(){
 }
 
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action , int mods ){
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-        running = false;
-    };
+static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+      running = false;
+  };
+};
+static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+  if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS){
+    Board_CheckForPieceClicked(m_xpos,m_ypos);
+  };
 }
+static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    glfwGetCursorPos(window, &xpos,&ypos);
+    m_xpos = xpos;
+    m_ypos = ypos;
+};

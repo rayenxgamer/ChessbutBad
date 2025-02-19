@@ -116,6 +116,4 @@ CMakeFiles/ChessbutBad.dir/src/gfx/utils/window/window.c.o: \
  /home/ray/C/Projects/ChessbutBad/lib/cglm/ray.h \
  /home/ray/C/Projects/ChessbutBad/lib/cglm/affine2d.h \
  /home/ray/C/Projects/ChessbutBad/lib/GLFW/glfw3.h \
- /home/ray/C/Projects/ChessbutBad/src/gfx/utils/types.h \
- /home/ray/C/Projects/ChessbutBad/src/gfx/utils/texture/texture.h \
- /home/ray/C/Projects/ChessbutBad/lib/stb_image/stb_image.h
+ /home/ray/C/Projects/ChessbutBad/src/gfx/utils/types.h

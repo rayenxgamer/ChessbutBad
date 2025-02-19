@@ -27,3 +27,5 @@ void printboard(const char* board[8]);
 void DefaultPiece(struct piece* self);
 
 static object* insert(struct piece* value);
+
+void Board_CheckForPieceClicked(double m_xpos,double m_ypos);
