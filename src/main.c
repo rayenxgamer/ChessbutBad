@@ -22,10 +22,10 @@ struct Camera camera;
 
 const char* board[8] = { "SOCTUCOS",
                          "MMMMMMMM",
-                         "0M000000",
                          "00000000",
-                         "00M000P0",
-                         "0000000P",
+                         "00000000",
+                         "00000000",
+                         "00000000",
                          "PPPPPPPP",
                          "RNBQKBNR"};
 
@@ -34,6 +34,11 @@ static void cursor_position_callback(GLFWwindow* window, double xpos, double ypo
   glfwGetCursorPos(window, &xpos,&ypos);
   printf("%lf\t%lf\n",xpos,ypos);
 }
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+    printf("leftmousebuttonclicked!\n");
+}
 
 int main(){
     GLFWwindow* window;
@@ -41,6 +46,7 @@ int main(){
 
     glfwSetKeyCallback(window, key_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    glfwSetMouseButtonCallback(window,mouse_button_callback);
     glfwSetCursorPosCallback(window, cursor_position_callback);
 
     struct VertexAttr attributes[] = {
@@ -99,4 +105,3 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action , int mo
         running = false;
     };
 }
-
