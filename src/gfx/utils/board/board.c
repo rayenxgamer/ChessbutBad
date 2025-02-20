@@ -1,10 +1,12 @@
 #include "board.h"
 #include "utils/terriblerenderer/renderer.h"
 #include "utils/texture/texture.h"
+#include <math.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
+void Board_Draw(struct Shader shader, char board[8][8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
   // should be able to just draw them using a list? but now i have
   // to think of how to make up the list
   struct piece* piece = malloc(sizeof(struct piece));
@@ -13,9 +15,9 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
   object* temp;
 
   // bind the background texture
-  struct Texture bg = T_LoadTextureFromFile(bg, "../assets/chess.png", false);
-  T_Bind(bg);
+  struct Texture bg = T_LoadTextureFromFile(bg, "../assets/chess.png", false); T_Bind(bg);
   Renderer_FillBackground(480, 640, shader, bg, VAO, VBO,  EBO);
+  // create the texture atlas
   struct Texture atlas = T_LoadTextureFromFile(atlas, "../assets/atlas.png", false);
   // chess constant atlases
 
@@ -35,7 +37,9 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
 
   #define GLOBAL_PIECE_SIZE 50
 
- T_Bind(atlas);
+  // not proud of this many defines, should be in a const var but it sounded cool to have it as a macro
+
+   T_Bind(atlas);
 
   BindShader(shader);
 
@@ -43,6 +47,8 @@ void Board_Draw(struct Shader shader, const char* board[8],unsigned int VAO,unsi
     for (int j=0; j<8; j++) {
         piece->x = 40 + (j * 80); // 40 px offset from window then 80px every move
         piece->y = 460 - ((i*60)); // 20 px offset from window then 60px every move
+
+      // check every single board space for a letter then draw a rectangle with a texture there to represent the piece
       switch (board[i][j]) {
         case 'R':
           piece->type = 'R';
@@ -171,6 +177,30 @@ object* insert(struct piece* value){
 
     return newnode;
 };
-void Board_CheckForPieceClicked(double m_xpos,double m_ypos){
 
+bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords){
+    double xpos =floor((m_xpos / 80));
+    double ypos =floor((m_ypos / 60));
+
+  if (*clickcounter == 1) {
+      switch (board[(int)ypos][(int)xpos]) {
+        case '0':
+        printf("nothing here\n");
+        // does nothing if your first board click was on 0 aka empty space
+        return false;
+        break;
+        default:
+        // get the coordinates of this click so it can be used to store stuff like
+        // well, the position and piece charachter
+        firstclickcoords[0] = xpos;
+        firstclickcoords[1] = ypos;
+        return true;
+      }
+    *clickcounter = *clickcounter+1;
+  }else{
+    char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
+    board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
+    board[(int)ypos][(int)xpos] = pieceToBeMoved;
+  }
+  return true;
 };

@@ -8,6 +8,17 @@
 #include "GLFW/glfw3.h"
 #include "utils/VAO.h"
 
+// TODO'S (in comments)
+// detect turns
+// windows build support
+// app icon
+// commenting the code in main.c
+// detect piece paths
+// detect a check
+// detect a mate
+// castle
+// a battle pass and world domination
+
 // constants
 #define HEIGHT 480
 #define WIDTH 640
@@ -16,6 +27,9 @@
 double m_xpos;
 double m_ypos;
 
+uint clickcounter = 0;
+vec2 firstclickcounter;
+
 bool running = true;
 
 mat4 projection;
@@ -23,7 +37,7 @@ mat4 view;
 
 struct Camera camera;
 
-const char* board[8] = { "SOCTUCOS",
+char board[8][8] = { "SOCTUCOS",
                          "MMMMMMMM",
                          "00000000",
                          "00000000",
@@ -32,7 +46,7 @@ const char* board[8] = { "SOCTUCOS",
                          "PPPPPPPP",
                          "RNBQKBNR"};
 
-static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
 static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
@@ -96,7 +110,7 @@ int main(){
 }
 
 
-static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
       running = false;
@@ -105,8 +119,23 @@ static void key_callback(GLFWwindow *window, int key, int scancode, int action, 
 static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
   if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS){
-    Board_CheckForPieceClicked(m_xpos,m_ypos);
+    clickcounter++;
+    switch (clickcounter) {
+      case 1:
+      if (!Board_CheckForPieceClicked(m_xpos,m_ypos,board,&clickcounter,firstclickcounter))
+      {
+        clickcounter = 0;
+      }
+      break;
+      case 2:
+        Board_CheckForPieceClicked(m_xpos, m_ypos, board, &clickcounter, firstclickcounter);
+      clickcounter = 0;
+      break;
+    }
   };
+  if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+    board[0][1] = 'C';
+  }
 }
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
