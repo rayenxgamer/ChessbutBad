@@ -198,9 +198,13 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
       }
     *clickcounter = *clickcounter+1;
   }else{
-    char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
-    board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
-    board[(int)ypos][(int)xpos] = pieceToBeMoved;
+    if (firstclickcoords[1] == ypos && firstclickcoords[0] == xpos) {
+      return true;
+    }else{
+      char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
+      board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
+      board[(int)ypos][(int)xpos] = pieceToBeMoved;
+    }
   }
   return true;
 };

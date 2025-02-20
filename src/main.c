@@ -134,7 +134,7 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
     }
   };
   if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-    board[0][1] = 'C';
+    clickcounter = 0;
   }
 }
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
