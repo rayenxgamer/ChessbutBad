@@ -179,9 +179,10 @@ object* insert(struct piece* value){
 };
 
 bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords){
+  // make the clicked coords align witht the board size by deviding it by the offset
+  // and flooring the value
     double xpos =floor((m_xpos / 80));
     double ypos =floor((m_ypos / 60));
-
   if (*clickcounter == 1) {
       switch (board[(int)ypos][(int)xpos]) {
         case '0':
@@ -198,13 +199,23 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
       }
     *clickcounter = *clickcounter+1;
   }else{
+    // check if the user clicks the exact same square again
     if (firstclickcoords[1] == ypos && firstclickcoords[0] == xpos) {
       return true;
-    }else{
-      char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
-      board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
-      board[(int)ypos][(int)xpos] = pieceToBeMoved;
+    }
+    // otherwise actually move the charachter
+    else{
+      if (Board_ValidMove(xpos, ypos, board, head)) {
+        char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
+        board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
+        board[(int)ypos][(int)xpos] = pieceToBeMoved;
+      }
+      else {
+        printf("invalid move");
+      return true;
+      }
     }
   }
+  // and actually exit the function
   return true;
 };

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <utils/texture/texture.h>
 #include <utils/shader/shader.h>
 #include <utils/window/window.h>

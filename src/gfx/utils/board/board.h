@@ -4,6 +4,17 @@
 #include "utils/shader/shader.h"
 #include "utils/texture/texture.h"
 
+// piece list
+struct Node{
+  struct piece* piece;
+  struct Node* next;
+};
+
+typedef struct Node object;
+// move list
+struct Node1{
+
+};
 
 struct piece{
   bool selected;
@@ -13,13 +24,7 @@ struct piece{
   struct Texture texture;
 };
 
-// very list
-struct Node{
-  struct piece* piece;
-  struct Node* next;
-};
 
-typedef struct Node object;
 
 // a function..to draw the board? im getting good at the whole "the code explains itself" thing
 void Board_Draw(struct Shader shader, char board[8][8],unsigned int VAO,unsigned int VBO,unsigned int EBO);
