@@ -6,12 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void Board_Draw(struct Shader shader, char board[8][8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
+void Board_Draw(struct Shader shader,object* head,const char board[8][8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
   // should be able to just draw them using a list? but now i have
   // to think of how to make up the list
   struct piece* piece = malloc(sizeof(struct piece));
 
-  object* head = NULL;
   object* temp;
 
   // bind the background texture
@@ -178,9 +177,10 @@ object* insert(struct piece* value){
     return newnode;
 };
 
-bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords){
+bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords, object* piece){
   // make the clicked coords align witht the board size by deviding it by the offset
   // and flooring the value
+  printf("%f\n",piece->piece->x);
     double xpos =floor((m_xpos / 80));
     double ypos =floor((m_ypos / 60));
   if (*clickcounter == 1) {
@@ -205,9 +205,12 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
     }
     // otherwise actually move the charachter
     else{
-      if (Board_ValidMove(xpos, ypos, board, head)) {
+      if (Board_ValidMove(xpos, ypos,firstclickcoords, board, *piece)) {
+        // get the charachter of the piece thats gonna be moved
         char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
+        // switch the spot where the piece is moving from to an empty space
         board[(int)firstclickcoords[1]][(int)firstclickcoords[0]] = '0';
+        // set the mouse position to the piece to be moved's charachter
         board[(int)ypos][(int)xpos] = pieceToBeMoved;
       }
       else {
@@ -219,3 +222,9 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
   // and actually exit the function
   return true;
 };
+
+bool Board_ValidMove(float xpos, float ypos,vec2 firstclickcoords, char board[8][8], object piece){
+  // the firstclickcoords is board array coordinates
+
+  return false;
+}

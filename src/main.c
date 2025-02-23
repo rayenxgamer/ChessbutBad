@@ -31,6 +31,8 @@ vec2 firstclickcounter;
 
 bool running = true;
 
+object* head;
+
 mat4 projection;
 mat4 view;
 
@@ -99,7 +101,7 @@ int main(){
       // chess board
       // grid is 40 offset from left X of the window and 80 per pawn rect
       // 60 per Y looks good
-      Board_Draw(shader,board,VAO,VBO,EBO);
+      Board_Draw(shader,head,board,VAO,VBO,EBO);
       glfwPollEvents();
       glfwSwapBuffers(window);
     }
@@ -121,13 +123,13 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
     clickcounter++;
     switch (clickcounter) {
       case 1:
-      if (!Board_CheckForPieceClicked(m_xpos,m_ypos,board,&clickcounter,firstclickcounter))
+      if (!Board_CheckForPieceClicked(m_xpos,m_ypos,board,&clickcounter,firstclickcounter,head))
       {
         clickcounter = 0;
       }
       break;
       case 2:
-        Board_CheckForPieceClicked(m_xpos, m_ypos, board, &clickcounter, firstclickcounter);
+        Board_CheckForPieceClicked(m_xpos, m_ypos, board, &clickcounter, firstclickcounter,head);
       clickcounter = 0;
       break;
     }
