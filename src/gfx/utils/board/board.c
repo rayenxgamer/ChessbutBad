@@ -6,11 +6,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void Board_Draw(struct Shader shader,object* head,const char board[8][8],unsigned int VAO,unsigned int VBO,unsigned int EBO){
+void Board_Draw(struct Shader shader,const char board[8][8],
+                unsigned int VAO,unsigned int VBO,unsigned int EBO){
   // should be able to just draw them using a list? but now i have
   // to think of how to make up the list
   struct piece* piece = malloc(sizeof(struct piece));
-
+  object* head;
   object* temp;
 
   // bind the background texture
@@ -177,10 +178,9 @@ object* insert(struct piece* value){
     return newnode;
 };
 
-bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords, object* piece){
+bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords){
   // make the clicked coords align witht the board size by deviding it by the offset
   // and flooring the value
-  printf("%f\n",piece->piece->x);
     double xpos =floor((m_xpos / 80));
     double ypos =floor((m_ypos / 60));
   if (*clickcounter == 1) {
@@ -205,7 +205,7 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
     }
     // otherwise actually move the charachter
     else{
-      if (Board_ValidMove(xpos, ypos,firstclickcoords, board, *piece)) {
+      if (Board_ValidMove(xpos, ypos,firstclickcoords[0],firstclickcoords[1], board)) {
         // get the charachter of the piece thats gonna be moved
         char pieceToBeMoved = board[(int)firstclickcoords[1]][(int)firstclickcoords[0]];
         // switch the spot where the piece is moving from to an empty space
@@ -223,8 +223,47 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
   return true;
 };
 
-bool Board_ValidMove(float xpos, float ypos,vec2 firstclickcoords, char board[8][8], object piece){
+bool Board_ValidMove(double x, double y,double fx, double fy, char board[8][8]){
   // the firstclickcoords is board array coordinates
-
-  return false;
+  char selectedPieceChar = board[(int)fy][(int)fx];
+  printf("\n%d\t%d\n",(int)x, (int)y);
+  printf("\n%d\t%d\n",(int)fx, (int)fy);
+  printf("%c\n",selectedPieceChar);
+  bool canMove = false;
+  switch (selectedPieceChar)
+  {
+    case 'P':
+      if (fy == 6) {
+        printf("at starting pos");
+        if (y >= (fy - 2.0f) && (y < fy) && (x == fx)){
+          if (board[(int)y-1][(int)x] != '0') {
+            canMove = false;
+            break;
+          }
+          canMove = true;
+        }
+      }
+      else
+        if (y >= (fy - 1.0f) && (y < fy) && (x == fx)){
+          if (board[(int)y][(int)x] != '0') {
+            canMove = false;
+          }else
+          canMove = true;
+        break;
+        }
+        if (y >= (fy - 1.0f) && (y < fy)){
+          if (board[(int)fy-1][(int)fx-1] != '0') {
+            if (y == fy-1 && x == fx-1) {
+              canMove = true;
+            }
+          }
+          if (board[(int)fy-1][(int)fx+1] != '0') {
+            if (y == fy-1 && x == fx+1) {
+              canMove = true;
+            }
+          }
+      }
+    break;
+  }
+  return canMove;
 }
