@@ -37,13 +37,13 @@ mat4 view;
 struct Camera camera;
 
 char board[8][8] = { "SOCTUCOS",
-                         "MMMMMMMM",
-                         "00000000",
-                         "00000000",
-                         "00000000",
-                         "00000000",
-                         "PPPPPPPP",
-                         "RNBQKBNR"};
+                     "MMMMMMMM",
+                     "00000000",
+                     "00000000",
+                     "00000000",
+                     "00000000",
+                     "PPPPPPPP",
+                     "RNBQKBNR"};
 
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);

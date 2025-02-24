@@ -11,7 +11,7 @@ void Board_Draw(struct Shader shader,const char board[8][8],
   // should be able to just draw them using a list? but now i have
   // to think of how to make up the list
   struct piece* piece = malloc(sizeof(struct piece));
-  object* head;
+  object* head = NULL;
   object* temp;
 
   // bind the background texture
@@ -223,6 +223,36 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
   return true;
 };
 
+static bool Board_CheckKnightMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite){
+  if (y == fy-2.0f && (x == fx-1 || x == fx+1) || y == fy+2.0f && (x == fx +1 || x == fx-1)) {
+    return true;
+  }
+  if (x == fx-2.0f && (y == fy+1 || y == fy-1) || x == fx + 2.0f && (y == fy + 1 || y == fy-1)) {
+    return true;
+  }
+
+  //* temporary *//
+  return false;
+}
+
+ static bool Board_CheckPawnMove(double x, double y, double fx, double fy,const char board[8][8], bool isWhite){
+  // general movement checks : up, down, starting position moves, not being able to move up into
+  // a piece that exists there
+  if (x == fx && board[(int)y][(int)x] == '0') {
+      if (isWhite ? (fy == 6 && y >= (fy - 2.0f) && y < fy && board[(int)fy-1][(int)fx] == '0') ||
+          (y >= (fy - 1.0f) && y < fy) : (fy == 1 && y <= (fy + 2.0f) && y > fy && board[(int)fy+1][(int)fx] == '0') ||
+          (y >= (fy + 1.0f) && y > fy) ) {
+          return true;
+        }
+  }
+  // diagonal capturing checks
+    if (isWhite ? (y == fy-1 && (x == fx-1 || x == fx+1) && board[(int)y][(int)x] != '0')
+  : (y == fy+1 && (x == fx+1 || x == fx-1) && board[(int)y][(int)x] != '0')) {
+        return true;
+    }
+  return false;
+}
+
 bool Board_ValidMove(double x, double y,double fx, double fy, char board[8][8]){
   // the firstclickcoords is board array coordinates
   char selectedPieceChar = board[(int)fy][(int)fx];
@@ -232,38 +262,21 @@ bool Board_ValidMove(double x, double y,double fx, double fy, char board[8][8]){
   bool canMove = false;
   switch (selectedPieceChar)
   {
+    // pawns
     case 'P':
-      if (fy == 6) {
-        printf("at starting pos");
-        if (y >= (fy - 2.0f) && (y < fy) && (x == fx)){
-          if (board[(int)y-1][(int)x] != '0') {
-            canMove = false;
-            break;
-          }
-          canMove = true;
-        }
-      }
-      else
-        if (y >= (fy - 1.0f) && (y < fy) && (x == fx)){
-          if (board[(int)y][(int)x] != '0') {
-            canMove = false;
-          }else
-          canMove = true;
-        break;
-        }
-        if (y >= (fy - 1.0f) && (y < fy)){
-          if (board[(int)fy-1][(int)fx-1] != '0') {
-            if (y == fy-1 && x == fx-1) {
-              canMove = true;
-            }
-          }
-          if (board[(int)fy-1][(int)fx+1] != '0') {
-            if (y == fy-1 && x == fx+1) {
-              canMove = true;
-            }
-          }
-      }
+      canMove = Board_CheckPawnMove(x,  y,  fx,  fy,  board, true);
+    break;
+    case 'M':
+      canMove = Board_CheckPawnMove(x,  y,  fx,  fy,  board, false);
+    break;
+    // knight
+    case 'N':
+     canMove = Board_CheckKnightMove(x, y, fx, fy, board, true);
+    break;
+    case 'O':
+     canMove = Board_CheckKnightMove(x, y, fx, fy, board, true);
     break;
   }
   return canMove;
 }
+

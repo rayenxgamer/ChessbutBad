@@ -41,5 +41,7 @@ static object* insert(struct piece* value);
 // the whole piece moving thing, obviously not needed and useless id rather
 bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], uint* clickcounter, vec2 firstclickcoords);
 
+static bool Board_CheckKnightMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite);
+static bool Board_CheckPawnMove(double x, double y, double fx, double fy,const char board[8][8], bool isWhite);
 
 bool Board_ValidMove(double x, double y,double fx, double fy, char board[8][8]);
