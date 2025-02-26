@@ -223,14 +223,49 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
   return true;
 };
 
-static bool Board_CheckRookMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite){
-  int upMaxLength = 0;
-  while (board[(int)fy - upMaxLength][(int)fx] != 'P') {
-    upMaxLength += 1;
-    printf("incremented once\n");
+static void Board_DetermineMaxMoves(const char board[8][8],double fx, double fy, int* upMaxLength, int* downMaxLength,
+                                    int* rightMaxLength, int* leftMaxLength){
+  // determine the max moves this piece can go up before hitting a piece
+  // all lengths have to start at 1 to account for taking the piece and for
+  // it to start properly counting
+  while (board[(int)fy - *upMaxLength][(int)fx] == '0') {
+    *upMaxLength += 1;
   }
-  printf("max len:| %d", upMaxLength);
-  printf("firstYclicke: %d",(int)fy);
+  // down this time
+  while (board[(int)fy + *downMaxLength][(int)fx] == '0') {
+    *downMaxLength += 1;
+  }
+  // left
+  while (board[(int)fy][(int)fx - *leftMaxLength] == '0') {
+    *leftMaxLength += 1;
+  }
+  // and then right
+  while (board[(int)fy][(int)fx + *rightMaxLength] == '0') {
+    *rightMaxLength += 1;
+  }
+  printf("all determined");
+}
+
+static bool Board_CheckRookMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite){
+  int upMaxLength = 1; int downMaxLength = 1; int rightMaxLength = 1; int leftMaxLength = 1;
+  Board_DetermineMaxMoves(board,  fx,  fy,
+                          &upMaxLength,  &downMaxLength,
+                          &rightMaxLength,  &leftMaxLength);
+  printf("\nmax up len:| %d\n", upMaxLength);
+  printf("\nmax down len:| %d\n", downMaxLength);
+  printf("\nmax right len:| %d\n", rightMaxLength);
+  printf("\nmax len:| %d\n", leftMaxLength);
+  printf("\nfirstYclicke: %d\n",(int)fy);
+  if ((int)y <= (int)fy - 1 - upMaxLength && x == fx &&(y < fy)) {
+    printf("moving down");
+    return true;
+  }
+  if ((int)y >= (int)fy + downMaxLength && x == fx &&(y < fy)) {
+    printf("moving down");
+    return true;
+  }
+
+  // logging, ignore
   // * temporary * //
   return false;
 }

@@ -40,7 +40,7 @@ char board[8][8] = { "SOCTUCOS",
                      "MMMMMMMM",
                      "00000000",
                      "00000000",
-                     "00000000",
+                     "000R0000",
                      "00000000",
                      "PPPPPPPP",
                      "RNBQKBNR"};
