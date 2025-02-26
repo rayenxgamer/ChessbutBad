@@ -223,6 +223,20 @@ bool Board_CheckForPieceClicked(double m_xpos,double m_ypos, char board[8][8], u
   return true;
 };
 
+static bool Board_CheckRookMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite){
+  int upMaxLength = 0;
+  while (board[(int)fy - upMaxLength][(int)fx] != 'P') {
+    upMaxLength += 1;
+    printf("incremented once\n");
+  }
+  printf("max len:| %d", upMaxLength);
+  printf("firstYclicke: %d",(int)fy);
+  // * temporary * //
+  return false;
+}
+
+
+
 static bool Board_CheckKnightMove(double x, double y, double fx, double fy, const char board[8][8], bool isWhite){
   if (y == fy-2.0f && (x == fx-1 || x == fx+1) || y == fy+2.0f && (x == fx +1 || x == fx-1)) {
     return true;
@@ -276,6 +290,8 @@ bool Board_ValidMove(double x, double y,double fx, double fy, char board[8][8]){
     case 'O':
      canMove = Board_CheckKnightMove(x, y, fx, fy, board, true);
     break;
+    case 'R':
+     canMove = Board_CheckRookMove(x,  y,  fx,  fy,  board,  true);
   }
   return canMove;
 }
