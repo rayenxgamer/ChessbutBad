@@ -251,21 +251,25 @@ static bool Board_CheckRookMove(double x, double y, double fx, double fy, const 
   Board_DetermineMaxMoves(board,  fx,  fy,
                           &upMaxLength,  &downMaxLength,
                           &rightMaxLength,  &leftMaxLength);
+  if (y > fy - upMaxLength - 1 && x == fx && y < fy) {
+    return true;
+  }
+  if (y < fy + downMaxLength + 1 && x == fx && y > fy) {
+    return true;
+  }
+  if (x > fx - rightMaxLength - 1 && y == fy && x < fx) {
+    return true;
+  }
+  if (x < fx + rightMaxLength + 1 && y == fy && x > fx) {
+    return true;
+  }
+
+  // logging, ignore
   printf("\nmax up len:| %d\n", upMaxLength);
   printf("\nmax down len:| %d\n", downMaxLength);
   printf("\nmax right len:| %d\n", rightMaxLength);
   printf("\nmax len:| %d\n", leftMaxLength);
   printf("\nfirstYclicke: %d\n",(int)fy);
-  if ((int)y <= (int)fy - 1 - upMaxLength && x == fx &&(y < fy)) {
-    printf("moving down");
-    return true;
-  }
-  if ((int)y >= (int)fy + downMaxLength && x == fx &&(y < fy)) {
-    printf("moving down");
-    return true;
-  }
-
-  // logging, ignore
   // * temporary * //
   return false;
 }
